@@ -1,0 +1,49 @@
+/* Base container styles */
+.show-pages-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  
+  /* Header styling */
+  .show-pages-header {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* List styling */
+  .show-pages-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .show-pages-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .show-pages-list li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Explore link styling */
+  .show-pages-explore {
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 5px;
+    font: 1.2rem bold;
+  }
+  
+  .show-pages-list li:hover .show-pages-explore {
+    text-decoration: none;
+    color: #0056b3;
+  }
+  

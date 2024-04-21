@@ -1,0 +1,26 @@
+.facebook-groups {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.facebook-groups h2 {
+  margin-bottom: 10px;
+}
+.facebook-groups .create-group-button {
+  background-color: #4267B2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.facebook-groups h3 {
+  margin-bottom: 10px;
+}
+.facebook-groups .group-option {
+  margin-bottom: 10px;
+}
+.facebook-groups .group-option input[type=checkbox] {
+  margin-right: 10px;
+}/*# sourceMappingURL=facebookgroups.css.map */

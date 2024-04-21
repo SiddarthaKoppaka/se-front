@@ -1,0 +1,80 @@
+.facebook-groups {
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px;
+        max-width: 400px;
+    
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    
+        h3 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    
+        .create-group-button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    
+        .group-options {
+            max-height: 200px;
+            overflow-y: auto;
+    
+            .group-option {
+                margin-bottom: 10px;
+    
+                input[type='checkbox'] {
+                    margin-right: 10px;
+                }
+            }
+        }
+    
+        .search-box {
+            margin-bottom: 20px;
+            display: flex; /* Use flexbox to align items horizontally */
+    
+            input[type='text'] {
+                flex: 1; /* Take up remaining space */
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                outline: none;
+            }
+    
+            button {
+                width: 30px;
+                height: 30px;
+                background-color: #c4d8f1;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                outline: none;
+            }
+        }
+    
+        .add-friends-button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+}

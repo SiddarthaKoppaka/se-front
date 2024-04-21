@@ -1,0 +1,66 @@
+body {
+  background-color: rgb(61, 146, 236);
+  margin: 0;
+}
+
+/* post.scss */
+.post {
+  font-family: "Arial", sans-serif;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.post .container {
+  padding: 20px;
+}
+.post .container .user {
+  display: flex;
+  margin-bottom: 20px;
+}
+.post .container .user .userInfo {
+  display: flex;
+  align-items: center;
+}
+.post .container .user .userInfo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+}
+.post .container .user .details {
+  display: flex;
+  flex-direction: column;
+}
+.post .container .content img, .post .container .content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.post .container .info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  align-items: center;
+  text-align: center;
+  font-size: 10px;
+}
+.post .container .info .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.post .container .info .item .MuiSvgIcon-root.custom-icon-size {
+  font-size: 30px;
+  color: #606060;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.post .container .info .item .MuiSvgIcon-root.custom-icon-size:hover {
+  color: #ED4956;
+  transform: scale(1.1);
+}/*# sourceMappingURL=post.css.map */

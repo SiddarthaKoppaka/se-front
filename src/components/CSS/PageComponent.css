@@ -1,0 +1,60 @@
+/* PageView.css */
+.page-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.page-description {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.unfollow-button,
+.follow-button {
+    display: block;
+    width: 200px;
+    padding: 10px 15px;
+    margin: 10px auto;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.unfollow-button:hover,
+.follow-button:hover {
+    background-color: #0056b3;
+}
+
+.share-container {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.posts-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}

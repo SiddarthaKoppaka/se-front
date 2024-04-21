@@ -1,0 +1,87 @@
+.chat-box {
+    width: 100%; // Adjust based on preference
+    display: flex;
+    background-color: #fff; // White background for chat box
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Subtle shadow for depth
+    border-radius: 8px; // Rounded corners
+
+    .member-list {
+    width: 30%; // Adjust width of member list
+    border-right: 1px solid #e0e0e0; // Separator
+    overflow-y: auto; // Enable scroll on overflow
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+        padding: 10px 15px;
+        cursor: pointer;
+        &:hover, &.active {
+            background-color: #007bff; // Highlight color
+            color: #fff; // White text for contrast
+        }
+        }
+    }
+    }
+
+    .chat-content {
+    width: 70%; // Chat content takes the remaining width
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .chat-messages {
+        list-style: none;
+        padding: 15px;
+        margin: 0;
+        overflow-y: auto;
+
+        .message {
+        margin-bottom: 10px;
+        .message-data {
+            display: inline-block;
+            padding: 8px;
+            background-color: #e0e0e0; // Different background for messages
+            border-radius: 18px; // Bubble-like shape
+            max-width: 70%; // Ensure messages don't stretch too wide
+
+            &.self {
+            background-color: #007bff; // Self messages stand out
+            color: #fff; // White text for readability
+            float: right; // Align self messages to the right
+            }
+        }
+        }
+    }
+
+    .send-message {
+        display: flex;
+        padding: 15px;
+        background-color: #f0f2f5; // Light grey background to match container
+        border-top: 1px solid #e0e0e0; // Separator
+
+        .input-message {
+        flex-grow: 1; // Input field takes up available space
+        border: 1px solid #ccc; // Subtle border
+        border-radius: 18px; // Rounded corners for the input field
+        padding: 10px 15px;
+        margin-right: 10px; // Space between input and send button
+        }
+
+        .send-button {
+        background-color: #007bff; // Button color to stand out
+        color: #fff; // White text for readability
+        border: none; // No border for the button
+        border-radius: 18px; // Match input field's rounded corners
+        padding: 10px 20px;
+        cursor: pointer; // Indicate clickable button
+        &:hover {
+            background-color: darken(#007bff, 10%); // Slightly darker on hover
+        }
+        }
+    }
+    }
+}
+

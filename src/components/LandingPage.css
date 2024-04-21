@@ -1,0 +1,109 @@
+.login {
+  height: 100vh;
+  background-color: rgb(193, 190, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login .card {
+  width: 100%;
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  min-height: 400px;
+  overflow: hidden;
+  max-width: 800px; /* Maximum width for larger screens */
+  min-width: 300px;
+}
+.login .card .left {
+  flex: 1;
+  background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg") center;
+  background-size: cover;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: white;
+}
+.login .card .left h1 {
+  font-size: 80px;
+  line-height: 80px;
+}
+.login .card .left p {
+  font-family: "Courier New", Courier, monospace;
+}
+.login .card .left span {
+  font-size: 14px;
+}
+.login .card .left button {
+  position: relative;
+  bottom: 20px;
+  width: 50%;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  color: rebeccapurple;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.login .card .left button:hover {
+  background-color: #7b76d1;
+  color: whitesmoke;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.login .card .right {
+  flex: 1;
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+.login .card .right h2 {
+  font-size: 100px;
+  line-height: 100px;
+}
+.login .card .right form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login .card .right form input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+  padding: 20px 10px;
+}
+.login .card .right form button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  background-color: #938eef;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.login .card .right form button:hover {
+  background-color: #9c98e8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.login .card #google-login {
+  position: relative;
+  display: inline-block;
+  background: #4285F4;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif; /* Roboto is the font recommended by Google */
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.login .card #google-login:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #5d91e3;
+}/*# sourceMappingURL=LandingPage.css.map */
