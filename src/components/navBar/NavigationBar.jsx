@@ -93,8 +93,12 @@ const NavBar = () => {
   
   const toggleSettingsSubmenu = (e) => {
     e.stopPropagation();
-    setSettingsSubmenuVisible(!settingsSubmenuVisible);
-  };
+    console.log("Current state before toggle:", settingsSubmenuVisible);
+    setSettingsSubmenuVisible(prevState => !prevState);
+    console.log("New state after toggle:", !settingsSubmenuVisible);
+};
+
+
 
   const handlePageSelect = (pageId) => {
     navigate(`/page/${pageId}`); 
@@ -308,17 +312,21 @@ const NavBar = () => {
         </div>
         <NotificationsOutlinedIcon />
         <div className="user">
-          <img
-            // src={profilePic}
-            src={profilePic ? profilePic : "https://robohash.org/mail@ashallendesign.co.uk"}
-            alt=""
-          />
 
 
         <div className="navbar">
               <div className="right">
                 <div className="user" onClick={toggleDropdown}>
-                  <span>{userName}</span>
+                <span className="user-profile">
+                    <img
+                      src={profilePic ? profilePic : "https://robohash.org/mail@ashallendesign.co.uk"}
+                      alt={userName}
+                      className="profile-pic"
+                    />
+                    {userName}
+                  </span>
+
+                
                   {dropdownVisible && (
                     <div className="dropdown">
                       <ul>
@@ -328,7 +336,6 @@ const NavBar = () => {
                         <li onClick={toggleSettingsSubmenu}>Settings
                           {settingsSubmenuVisible && (
                             <ul className="submenu">
-                              <li onClick={() => navigate('/edit-profile')}>Edit Profile</li>
                               <li onClick={() => navigate('/2FA', { state: { username: userName , 
                                                         isTwoFactorEnabled: isTwoFactorEnabled} })}>2 Factor Authentication</li>
                               <li onClick={() => navigate('/blocked-users')}>Blocked Users</li>

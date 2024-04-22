@@ -212,12 +212,19 @@
       font-weight: 500;
       cursor: pointer;
 
-      img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        object-fit: cover;
+      .user-profile {
+        display: flex; /* Aligns the image and text inline */
+        align-items: center; /* Vertically centers the text with the image */
+        gap: 10px; /* Provides some space between the image and the text */
       }
+      
+      .profile-pic {
+        width: 30px; /* Set a fixed width for the image */
+        height: 30px; /* Set a fixed height for the image */
+        border-radius: 50%; /* Makes the image circular */
+        object-fit: cover; /* Ensures the image covers the area without distorting aspect ratio */
+      }
+      
 
       .dropdown {
         position: absolute;
@@ -249,10 +256,11 @@
               display: block; // Show submenu on hover
             }
           }
+          
         }
 
         .submenu {
-          display: none; /* Initially hidden */
+          display:  #{if(settingsSubmenuVisible, 'block', 'none')};; /* Initially hidden */
           position: absolute;
           right: 100%; /* Position it to the left of the parent element */
           top: 0;
