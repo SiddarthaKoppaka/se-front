@@ -36,6 +36,7 @@ import CreatePage from './components/CreatePage.jsx';
 import PageComponent from './components/PageComponent.jsx';
 
 import ShowPages from './components/showPages.jsx';
+import { ThemeProvider } from './components/ThemeContext.jsx';
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
 
 
   return (
+    <ThemeProvider>
     <BrowserRouter>
       <div>
         <Routes>
@@ -201,6 +203,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

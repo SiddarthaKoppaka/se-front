@@ -1,3 +1,7 @@
+html{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
 $themes: (
   light: (
     textColor: #000,
@@ -47,6 +51,38 @@ $themes: (
 }
 @mixin tablet {
   @media (max-width: 960px) {
+    @content;
+  }
+}
+
+
+// Media Queries
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin smallDevices {
+  @media (min-width: 601px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediumDevices {
+  @media (min-width: 769px) and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin largeDevices {
+  @media (min-width: 993px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin extraLargeDevices {
+  @media (min-width: 1201px) {
     @content;
   }
 }

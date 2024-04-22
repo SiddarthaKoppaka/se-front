@@ -1,0 +1,68 @@
+// styles.scss
+:root {
+    --primary-color: #4267B2;
+    --secondary-color: #E9EBEE;
+    --accent-color: #4C9AFF;
+    --text-color: #1C1E21;
+    --text-secondary-color: #606770;
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --font-size-regular: 16px;
+    --font-size-large: 24px;
+    --font-size-small: 14px;
+    --space-small: 8px;
+    --space-medium: 16px;
+    --space-large: 32px;
+    --border-radius: 8px;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-regular);
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--space-medium);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    a {
+      color: white;
+      margin-right: var(--space-small);
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .theme-light {
+    --bg-color: var(--secondary-color);
+    --text-color: var(--text-color);
+  }
+  
+  .theme-dark {
+    --bg-color: #333;
+    --text-color: whitesmoke;
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: var(--font-size-small);
+    }
+  }
+  

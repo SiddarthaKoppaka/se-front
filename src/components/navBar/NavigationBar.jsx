@@ -35,7 +35,10 @@ const NavBar = () => {
 
   const [pages, setPages] = useState('');
 
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showPagesDropdown, setShowPagesDropdown] = useState(false);
+  const [showFriendsRequestsDropdown, setShowFriendsRequestsDropdown] = useState(false);
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
+  
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [settingsSubmenuVisible, setSettingsSubmenuVisible] = useState(false);
 
@@ -85,10 +88,27 @@ const NavBar = () => {
     }));
   };
   
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
-    setSettingsSubmenuVisible(false); 
-  };
+  const togglePagesDropdown = () => {
+    setShowPagesDropdown(prev => !prev);
+    // Ensure other dropdowns are closed
+    setShowFriendsRequestsDropdown(false);
+    setShowUserDropdown(false);
+};
+
+const toggleFriendsRequestsDropdown = () => {
+    setShowFriendsRequestsDropdown(prev => !prev);
+    // Ensure other dropdowns are closed
+    setShowPagesDropdown(false);
+    setShowUserDropdown(false);
+};
+
+const toggleUserDropdown = () => {
+    setShowUserDropdown(prev => !prev);
+    // Ensure other dropdowns are closed
+    setShowPagesDropdown(false);
+    setShowFriendsRequestsDropdown(false);
+};
+
 
   
   const toggleSettingsSubmenu = (e) => {
@@ -214,8 +234,8 @@ const NavBar = () => {
         )}
 
         <div className="dropdown-container">
-            <GridViewOutlinedIcon onClick={toggleDropdown} className="dropdown-icon" />
-            {dropdownVisible && (
+            <GridViewOutlinedIcon onClick={togglePagesDropdown} className="dropdown-icon iconsForAll" />
+            {showPagesDropdown  && (
                 <div className="dropdown-menu-pages">
                     {pages.map((page) => (
                         <div
@@ -238,8 +258,8 @@ const NavBar = () => {
         <div className="search">
           <SearchOutlinedIcon onClick={onSearch}/>
           <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setShowDropdown(true)}
-            onBlur={() => setShowDropdown(false)}
+            onFocus={() => setShowPagesDropdown(true)}
+            onBlur={() => setShowPagesDropdown(false)}
             onKeyDown={handleKeyDown}/>
           {/* Filter button */}
           <button onClick={toggleFilterDropdown}>Filters</button>
@@ -284,10 +304,10 @@ const NavBar = () => {
       <div className="right">
 
       <div className="friend-requests">
-        <button onClick={toggleDropdown}>
-          <PersonOutlinedIcon />
+        <button onClick={toggleFriendsRequestsDropdown}>
+          <PersonOutlinedIcon className="iconsForAll"/>
         </button>
-          {dropdownVisible && (
+          {showFriendsRequestsDropdown  && (
             <div className="dropdown-menu">
               {friendRequests.length > 0 ? (
                 friendRequests.map((request) => (
@@ -308,7 +328,7 @@ const NavBar = () => {
 
 
         <div onClick={handleGetChats} style={{ cursor: 'pointer' }}>
-          <EmailOutlinedIcon />
+          <EmailOutlinedIcon className="iconsForAll"/>
         </div>
         <NotificationsOutlinedIcon />
         <div className="user">
@@ -316,7 +336,7 @@ const NavBar = () => {
 
         <div className="navbar">
               <div className="right">
-                <div className="user" onClick={toggleDropdown}>
+                <div className="user" onClick={toggleUserDropdown}>
                 <span className="user-profile">
                     <img
                       src={profilePic ? profilePic : "https://robohash.org/mail@ashallendesign.co.uk"}
@@ -327,7 +347,7 @@ const NavBar = () => {
                   </span>
 
                 
-                  {dropdownVisible && (
+                  {showUserDropdown && (
                     <div className="dropdown">
                       <ul>
                       <li onClick={() => navigate('/user/:username')}> View Profile </li>

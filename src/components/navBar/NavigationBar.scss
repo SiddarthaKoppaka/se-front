@@ -1,5 +1,11 @@
 @import "../../style.scss";
 
+
+.iconsForAll {
+  position: relative;
+      top: 2px;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -60,17 +66,16 @@
         border: none;
         width: 500px;
         background-color: transparent;
-        padding: 10px 15px; /* Increased padding */
-        font-size: 16px; /* Adjust font size as needed */
+        padding: 10px 15px;
+        font-size: 16px;
         outline: none;
-        // color: themed("textColor");
-
-        @include mobile {
-          display: none;
-        }
-
-        @include tablet {
+  
+        @media (max-width: 960px) {
           width: 200px;
+        }
+  
+        @media (max-width: 600px) {
+          display: none;
         }
       }
 
@@ -161,16 +166,13 @@
       
 
       .dropdown-menu {
-        display: none; // Initially hidden
         position: absolute;
-        z-index: 1000;
-        top: 100%; // Directly below the button
-        right: 0;
-        background-color: whitesmoke;
-        border: 5px solid #ccc;
+        z-index: 100;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        margin-top: 5px;
         border-radius: 4px;
         min-width: 160px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
         div {
           padding: 8px 12px;
@@ -228,15 +230,14 @@
 
       .dropdown {
         position: absolute;
-        top: 100%;
-        right: 0;
+        top: 80%;
+        right: 30%;
+        z-index: 100;
+        border: 1px solid #ddd;
         background-color: #fff;
-        border: 1px solid #ccc;
+        margin-top: 5px;
         border-radius: 4px;
-        width: auto;
-        min-width: 160px; // Ensures the dropdown has a minimum width
-        z-index: 1000;
-        display: none; // Initially hidden
+        min-width: 160px;
 
         ul {
           list-style: none;
@@ -276,4 +277,8 @@
       }
     }
   }
+  
 }
+
+
+

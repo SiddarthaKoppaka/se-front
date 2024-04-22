@@ -10,28 +10,28 @@ const EditProfile = ({ user }) => {
     const [coverPhotoUrl, setCoverPhotoUrl] = useState(null);
     const navigate = useNavigate();
 
-    // Initialize state with user data
     useEffect(() => {
         if (user) {
             setUsername(user.username || '');
             setLivesIn(user.livesIn || '');
             setRelationshipStatus(user.relationshipStatus || '');
+            // Initialize URLs if available
+            setProfilePicUrl(user.profilePicUrl || null);
+            setCoverPhotoUrl(user.coverPhotoUrl || null);
         }
     }, [user]);
 
     const handleProfileUpdate = async (e) => {
         e.preventDefault();
-
         const formData = new FormData();
         formData.append('username', username);
         formData.append('livesIn', livesIn);
         formData.append('relationshipStatus', relationshipStatus);
-        // Append profile picture and cover photo data if they exist
         if (profilePicUrl) {
-            formData.append('profilePicUrl', profilePicUrl);
+            formData.append('profilePic', profilePicUrl);
         }
         if (coverPhotoUrl) {
-            formData.append('coverPhotoUrl', coverPhotoUrl);
+            formData.append('coverPhoto', coverPhotoUrl);
         }
 
         try {
@@ -45,16 +45,17 @@ const EditProfile = ({ user }) => {
             });
 
             if (response.ok) {
+                const result = await response.json();
                 alert("Profile updated successfully");
-                navigate('/home');
-                window.location.reload();
+                // Optionally, refresh user data here or manage state to update UI
+                navigate('/profile'); // Navigate to the profile page instead of home to see changes
             } else {
-                throw new Error('Profile update failed');
+                const errorResponse = await response.text();
+                throw new Error(errorResponse || 'Profile update failed');
             }
-
-            const result = await response.json();
         } catch (error) {
             console.error('Error updating profile:', error);
+            alert('Error updating profile: ' + error.message);
         }
     };
 
