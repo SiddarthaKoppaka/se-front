@@ -1,13 +1,15 @@
+@import "../../style.scss";
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   height: 50px;
-  border-bottom: 1px solid rgb(211, 211, 211);
+  border-bottom: 1px solid rgb(211, 211, 211); //themed("border");
   position: sticky;
   top: 0;
-  background-color: rgb(58, 102, 183);
+  background-color: rgb(58, 102, 183); //themed("bg");
   z-index: 999;
 
   .left {
@@ -18,39 +20,63 @@
     span {
       font-weight: bold;
       font-size: 20px;
-      color: rgb(1, 8, 27);
+      color: rgb(1, 8, 27); // themed("logo");
     }
+    
+  .dropdown-container {
+      position: relative;
+  }
+  
+  .dropdown-icon {
+      cursor: pointer;
+  }
+  
+  .dropdown-menu-pages {
+      position: absolute;
+      z-index: 100;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      margin-top: 5px;
+      border-radius: 4px;
+      min-width: 160px;
+  }
+  
+  .dropdown-item {
+      padding: 10px;
+      cursor: pointer;
+  }
+  
 
     .search {
       display: flex;
       align-items: center;
       gap: 10px;
-      border: 1px solid lightgrey;
+      border: 1px solid lightgrey; //themed("border");
       border-radius: 5px;
       padding: 5px;
       position: relative;
-
 
       input {
         border: none;
         width: 500px;
         background-color: transparent;
-        padding: 10px 15px;
-        font-size: 16px;
+        padding: 10px 15px; /* Increased padding */
+        font-size: 16px; /* Adjust font size as needed */
         outline: none;
+        // color: themed("textColor");
 
-        @media screen and (max-width: 768px) {
-          width: 100%;
+        @include mobile {
+          display: none;
         }
 
-        @media screen and (max-width: 1024px) {
+        @include tablet {
           width: 200px;
         }
       }
 
       button {
-        background-color: #4c9aff;
-        color: white;
+        background-color: #4C9AFF; // Updated button color
+        color: white; // Text color for the button
         padding: 5px 10px;
         border-radius: 4px;
         border: none;
@@ -58,92 +84,93 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: #1a78c2;
+          background-color: #1A78C2; // Darker shade on hover
         }
       }
 
       .filter-dropdown {
-        display: none;
+        display: none; // Initially hidden, shown when the Filters button is clicked
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #f3f4f6;
+        background-color: #F3F4F6; // Lighter background color for the dropdown
         border: 5px solid #ccc;
         border-radius: 4px;
-        padding: 15px;
-        width: 80%;
+        padding: 15px; // Increased padding for better spacing
+        width: 80%; // Adjusted width
         z-index: 100;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
         div {
-          display: block;
-          margin-bottom: 15px;
+          display: block; // Changed from flex to block for vertical layout
+          margin-bottom: 15px; // Increased spacing between filter options
 
           label {
-            display: block;
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 14px;
+            display: block; // Ensure label takes up full width for better clickability
+            margin-bottom: 10px; // Increased bottom margin for labels
+            color: #333; // Label text color
+            font-size: 14px; // Adjusted font size for clarity
           }
 
-          input[type="text"],
-          input[type="checkbox"] {
-            width: 80%;
-            margin-top: 5px;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+          input[type="text"], input[type="checkbox"] {
+            width: 80%; // Ensure input takes full width of dropdown
+            margin-top: 5px; // Maintain top margin for spacing
+            padding: 8px; // Increased padding for better input visibility and interaction
+            border-radius: 4px; // Rounded corners for inputs
+            border: 1px solid #ccc; // Border color for inputs
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); // Subtle inner shadow for depth
           }
 
           input[type="checkbox"] {
-            width: auto;
-            margin-right: 5px;
+            width: auto; // Override for checkboxes to not stretch
+            margin-right: 5px; // Space before checkbox label
           }
         }
       }
+
+      
     }
   }
 
   .right {
     display: flex;
     align-items: center;
-    gap: 30px;
-    position: relative;
-    right: 50px;
+    gap: 20px;
 
     .friend-requests {
       position: relative;
       display: inline-block;
 
       button {
-        background: none;
+        background: none; // Make the button background transparent
         border: none;
         padding: 0;
         cursor: pointer;
-
+    
         &:focus {
-          outline: none;
+          outline: none; // Remove outline on focus for a cleaner look, but ensure accessibility in other ways
         }
-
+    
         svg {
-          fill: #222529;
-          width: 36px;
+          // Optionally, adjust the icon size, color, etc., if needed
+          fill: #222529; // Change the icon color to match the button styles
+          width: 36px; // Adjust size as necessary
           height: 30px;
         }
       }
+      
 
       .dropdown-menu {
-        display: none;
+        display: none; // Initially hidden
         position: absolute;
         z-index: 1000;
-        top: 100%;
+        top: 100%; // Directly below the button
         right: 0;
         background-color: whitesmoke;
         border: 5px solid #ccc;
         border-radius: 4px;
         min-width: 160px;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
         div {
           padding: 8px 12px;
@@ -154,9 +181,9 @@
           }
 
           button {
-            margin-right: 10px;
-            background-color: #4c9aff;
-            color: white;
+            margin-right: 10px; 
+            background-color: #4C9AFF; // Updated button color
+            color: white; // Text color for the button
             padding: 5px 10px;
             border-radius: 4px;
             border: none;
@@ -164,14 +191,14 @@
             transition: background-color 0.3s ease;
 
             &:hover {
-              background-color: #1a78c2;
+              background-color: #1A78C2;
+              }
             }
           }
-        }
       }
 
       &:hover .dropdown-menu {
-        display: block;
+        display: block; // Show dropdown on hover
       }
     }
 
@@ -179,22 +206,17 @@
     
     .user {
       position: relative;
-      left: 80px;
       display: flex;
       align-items: center;
       gap: 10px;
       font-weight: 500;
       cursor: pointer;
-      padding: 15px 20px;
 
       img {
         width: 30px;
         height: 30px;
         border-radius: 50%;
         object-fit: cover;
-        position: relative;
-        left: 120px;
-        bottom: 25px;
       }
 
       .dropdown {
@@ -205,9 +227,9 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         width: auto;
-        min-width: 160px;
+        min-width: 160px; // Ensures the dropdown has a minimum width
         z-index: 1000;
-        display: none;
+        display: none; // Initially hidden
 
         ul {
           list-style: none;
@@ -222,44 +244,27 @@
               background-color: #f5f5f5;
             }
 
+            // Targeting the Settings list item for the submenu
             &:nth-child(2):hover .submenu {
-              display: block;
+              display: block; // Show submenu on hover
             }
           }
         }
 
         .submenu {
-          display: #{if(settingsSubmenuVisible, 'block', 'none')};
+          display: none; /* Initially hidden */
           position: absolute;
-          right: 100%;
+          right: 100%; /* Position it to the left of the parent element */
           top: 0;
-          border-right: 1px solid #ccc;
+          border-right: 1px solid #ccc; /* Adjust the border to the right side */
           background-color: #fff;
-          border-radius: 4px 0 0 4px;
-          width: 200px;
+          border-radius: 4px 0 0 4px; /* Adjust rounded corners for the left side */
+          width: 200px; /* Adjust width as needed to make it broader */
         }
       }
 
       &:hover .dropdown {
-        display: block;
-      }
-    }
-  }
-
-  // Media query for split window
-  @media screen and (orientation: landscape) and (max-width: 1024px) {
-    .left {
-      gap: 20px;
-    }
-
-    .right {
-      .friend-requests {
-        button {
-          svg {
-            width: 30px;
-            height: 25px;
-          }
-        }
+        display: block; // Display dropdown on hover of .user
       }
     }
   }

@@ -209,47 +209,24 @@ const NavBar = () => {
           <DarkModeOutlinedIcon onClick={toggle} />
         )}
 
-        <div style={{ position: 'relative' }}>
-          <GridViewOutlinedIcon onClick={toggleDropdown} style={{ cursor: 'pointer' }} />
-          {dropdownVisible && (
-            <div style={{ 
-              position: 'absolute', 
-              zIndex: 100, 
-              border: '1px solid #ddd',
-              backgroundColor: '#fff', 
-              marginTop: '5px', 
-              borderRadius: '4px',
-              minWidth: '160px'
-             }}>
-              {pages.map((page) => (
-                <div
-                  key={page.id}
-                  onClick={() => handlePageSelect(page.id)}
-                  style={{ padding: '10px', cursor: 'pointer' }}
-                >
-                  {page.name}
+        <div className="dropdown-container">
+            <GridViewOutlinedIcon onClick={toggleDropdown} className="dropdown-icon" />
+            {dropdownVisible && (
+                <div className="dropdown-menu-pages">
+                    {pages.map((page) => (
+                        <div
+                            key={page.id}
+                            onClick={() => handlePageSelect(page.id)}
+                            className="dropdown-item"
+                        >
+                            {page.name}
+                        </div>
+                    ))}
                 </div>
-              ))}
-            </div>
-          )}
+            )}
         </div>
 
-        <button
-          style={{
-            padding: '5px 10px',
-            fontSize: '15px',
-            color: '#fff',
-            backgroundColor: '#007bff',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            outline: 'none',
-            transition: 'background-color 0.2s ease-in-out'
-          }}
-          onClick={() => navigate('/getAllPages')}
-        >
-          Pages
-        </button>
+        
         
         
         {/* SEARCH */}
@@ -345,6 +322,8 @@ const NavBar = () => {
                   {dropdownVisible && (
                     <div className="dropdown">
                       <ul>
+                      <li onClick={() => navigate('/user/:username')}> View Profile </li>
+
                         <li onClick={() =>  navigate('/friends', { state: { friends: friends } })}>View Friends</li>
                         <li onClick={toggleSettingsSubmenu}>Settings
                           {settingsSubmenuVisible && (

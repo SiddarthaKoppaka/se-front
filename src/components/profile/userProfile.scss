@@ -2,41 +2,31 @@
   background-color: #f6f3f3;
   display: flex;
   flex-direction: column;
-  align-items: center; // Center align content horizontally
+  align-items: center; // Center align content vertically
   padding: 2vh 2vw; // Use viewport units for responsive padding
 
   .images {
     display: flex;
     justify-content: center;
-    align-items: center; // Center align content horizontally
-    margin-bottom: 2vh; // Add margin between images and profile info
-    width: 100%; // Ensure images occupy full width
+    width: 100%; // Ensure images container occupies full width
+    position: relative; // Needed for absolute positioning of the profile picture
 
     .cover {
       width: 100%;
+      height: auto;
       max-height: 200px; // Adjust the maximum height of the cover photo
       object-fit: cover; // Maintain aspect ratio and fill container
       border-radius: 20px;
-    }
-
-    .profilePicContainer {
-      display: flex;
-      align-items: center; // Center align content horizontally
     }
 
     .profilePic {
       width: 150px; // Adjust the width of the profile photo
       height: 150px; // Adjust the height of the profile photo
       border-radius: 50%;
-      margin-right: 20px;
-      position: relative;
-      right: 250px;
-      top: 100px;
-    
-    }
-
-    .username {
-      font-size: 1.5rem; // Adjust font size as needed
+      border: 5px solid white; // Adding a border to enhance visibility
+      position: absolute; // Position absolute relative to parent
+      bottom: -75px; // Half outside the parent container
+      right: calc(50% - 75px); // Center alignment by shifting half width of image
     }
   }
 
@@ -46,49 +36,97 @@
     display: flex;
     flex-direction: column;
     align-items: center; // Center align content horizontally
+    margin-top: 75px; // Offset for the part of profile image sticking out
     gap: 2vh; // Add gap between profile info and posts
+    background-color: #ffffff; // Light background for the content area
+    padding: 20px;
+    border-radius: 15px; // Rounded corners for a softer look
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); // Subtle shadow for depth
 
     .uInfo {
-      background-color: #959090;
-      border-radius: 20px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      width: 100%; // Ensure user info container occupies full width
-      padding: 2vh; // Use viewport units for responsive padding
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      padding: 10px 15px;
+      width: 100%; // Full width within container
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 
       .center {
         display: flex;
         flex-direction: column;
         align-items: center; // Center align content horizontally
-        gap: 1vh; // Add gap between profile info items
-      }
+        gap: 10px; // Uniform gap between items for clean spacing
 
-      .bio {
-        display: flex;
-        flex-direction: column;
-        align-items: center; // Center align content horizontally
-        gap: 1vh; // Add gap between bio items
-
-        textarea {
-          width: 100%;
-          padding: 5px;
-          border-radius: 5px;
-          border: 1px solid #ccc;
-          outline: none;
-          margin-bottom: 10px;
+        .item {
+          display: flex;
+          align-items: center; // Align icons and text
+          gap: 5px; // Space between icon and text
         }
 
-        button {
-          border: none;
-          background-color: #5271ff;
-          color: #fff;
-          padding: 5px 10px;
-          border-radius: 5px;
-          cursor: pointer;
+        .username {
+          font-size: 1.8rem; // Larger font size for username
+          color: #333; // Dark color for better readability
+          font-weight: bold;
         }
+
+        .bio {
+          display: flex;
+          flex-direction: column;
+          align-items: center; // Center align content horizontally
+          width: 100%; // Full width textarea and button
+
+          textarea {
+            width: 90%; // Slightly less than full width for padding
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+          }
+
+          button {
+            margin-top: 10px;
+            border: none;
+            background-color: #5271ff; // Vibrant blue for action items
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s; // Smooth transition for hover effect
+
+            &:hover {
+              background-color: #405ed9; // Darker blue on hover
+            }
+          }
+        }
+        .edit-profile-button {
+          padding: 10px 20px; /* Comfortable padding around the text */
+          background-color: #4CAF50; /* A pleasant green background */
+          color: white; /* White text for contrast */
+          font-size: 16px; /* Suitable font size for readability */
+          border: none; /* No border for a modern look */
+          border-radius: 5px; /* Slightly rounded corners */
+          cursor: pointer; /* Cursor indicates the button is clickable */
+          transition: background-color 0.3s, transform 0.2s; /* Smooth transition for visual effects */
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        
+          &:hover {
+            background-color: #45a049; /* Slightly darker green on hover for feedback */
+            transform: translateY(-2px); /* Slight lift effect on hover */
+          }
+        
+          &:active {
+            transform: translateY(1px); /* Push effect when clicked */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Adjust shadow for clicked effect */
+          }
+        
+          &:focus {
+            outline: none; /* Remove outline to maintain the aesthetics */
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 0 4px #4CAF50; /* Focus ring to enhance accessibility */
+          }
+        }
+        
       }
     }
 
-    // Adjustments for Posts component (if needed)
     .posts {
       width: 100%; // Ensure posts container occupies full width
     }
